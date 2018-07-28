@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript Örneği</title>
+  </head>
+  <body>
+    <p id="paragraf">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <button type="button" name="button" onclick="boya()">BOYA BENİ</button>
+    <script type="text/javascript">
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    var boya = function(){
+        var red = getRandomInt(0,255);
+        var green = getRandomInt(0,255);
+        var blue = getRandomInt(0,255);
+        document.getElementById('paragraf').style.color = "rgb("+red+","+green+","+blue+")";
+    }
+
+    setInterval(boya, 500);
+    </script>
+  </body>
+</html>
