@@ -12,11 +12,11 @@ require_once "init.php";
 
 //  giriş için gerekli bilgileri önden tanımlayalım
 $adminUsername = "admin";
-$adminPassword = "123456";
+$adminPasswordHash = "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"; //"123456";
 
 //   formdan gelen bilgiler ön tanımlı verilerle örtüşüyor mu diye bakalım
 if(isset($_POST['username']) && isset($_POST['password'])){
-  if($_POST['username']==$adminUsername && $_POST['password']==$adminPassword){
+  if($_POST['username']==$adminUsername && hash("sha256",$_POST['password'])==$adminPasswordHash){
     //  kullanıcının girdiği bilgiler bizimkilerle uyuşuyor, giriş yaptırıp ana sayfaya yönlendirebiliriz
     $_SESSION['is_admin'] = true;
     header("Location: index.php");
