@@ -1,9 +1,11 @@
 <?php
 
-require "data.php";
+require_once "init.php";
 
 //  adres çubuğundan gelen id parametresini alıp bu indisli elemanı tüm verilerin bulunduğu diziden kaldıracağız
 
+//  yönetici değilse burada işi yok
+redirectToLoginIfNotAdmin();
 
 //  id parametresi dolu mu ve böyle bir eleman tüm verilerin bulunduğu dizide var mı diye bakarız
 

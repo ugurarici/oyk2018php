@@ -1,8 +1,11 @@
 <?php
 
-require_once "data.php";
+require_once "init.php";
 
 //  bu sayfada belirtilen kaydın düzenlenebilmesi için bir form göstereceğiz
+
+//  yönetici değilse burada işi yok
+redirectToLoginIfNotAdmin();
 
 //  sayfa ilk açıdığında formun içinde kayda dair mevcut bilgiler görüntülenmeli
 

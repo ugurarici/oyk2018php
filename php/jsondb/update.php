@@ -1,10 +1,13 @@
 <?php
-require "data.php";
+require_once "init.php";
 
 
 //  edit.php sayfasından gelen formdaki bilgilerle tüm verilerin bulunduğu diziyi güncelleriz
 
 // var_dump($_POST);
+
+//  yönetici değilse burada işi yok
+redirectToLoginIfNotAdmin();
 
 
 //  posttan gelen bilgiler yakalanır

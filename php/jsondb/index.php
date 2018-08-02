@@ -15,7 +15,7 @@
 //  detay sayfasında ise ilgili kaydın detayı ve ana sayfaya dön bağlantısı bulunacak
 
 //  ortak veri kaynağına ulaşabilmek için veriyi bize getiren dosyaya bağımlı olduğumuzu belirtiyoruz
-require "data.php"; ?>
+require_once "init.php"; ?>
 <ul>
 <?php foreach ($articles as $indis => $article) : ?>
     <li>
@@ -23,4 +23,9 @@ require "data.php"; ?>
     </li>
 <?php  endforeach; ?>
 </ul>
-<a href="new.php">Yeni Makale</a>
+<?php if(isset($_SESSION['is_admin'])): ?>
+  <a href="new.php">Yeni Makale</a> -
+  <a href="logout.php">Çıkış Yap</a>
+<?php else: ?>
+  <a href="login.php">Giriş Yap</a>
+<?php endif; ?>

@@ -1,7 +1,10 @@
 <?php
 
 //  bu sayfada tüm verilerin bulunduğu dziye ihtiyaç duyduğumuz için data.php dosyasına bağımlıyız
-require_once "data.php";
+require_once "init.php";
+
+//  yönetici değilse burada işi yok
+redirectToLoginIfNotAdmin();
 
 //  formdan post metodu ile gelen title ve content verlerini alıp, data.php içindeki standartlara uygun şekilde yeni bir article dizisi yaratıp bunu tüm verinin bulunduğu kaynağa eklemek istiyoruz
 
