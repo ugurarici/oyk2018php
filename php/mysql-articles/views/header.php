@@ -18,6 +18,13 @@
         <li class="nav-item active">
           <a class="nav-link" href="index.php">Ana sayfa</a>
         </li>
+        <?php if(isset($_SESSION['username'])): ?>
+          <li class="nav-item">
+              <a class="nav-link disabled" href="#" disabled>
+            Hoş geldiniz <?=$_SESSION['username']?>
+          </a>
+          </li>
+        <?php endif; ?>
       </ul>
     </div>
     </div>
