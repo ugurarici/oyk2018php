@@ -4,7 +4,7 @@
   <?php foreach ($articles as $article): ?>
     <li>
       <a href="article.php?id=<?=$article->id?>">
-        <?=$article->title?>
+        <?=$article->title?> - <?=$article->okunmaSayisiSoyle()?>
       </a>
     </li>
   <?php endforeach; ?>

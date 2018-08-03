@@ -33,20 +33,31 @@ $connection = new PDO("mysql:host=localhost;dbname=oyk2018_blog;charset=utf8;", 
 
 //  query ile dönen yanıtlar içinden veri alabilmek için yanıtın üzerinde ->fetch() metodu çalıştırılarak gelen satırlardan ilki alınabilir
 
-$sayisiniGetir = $connection->query("SELECT COUNT(id) as satir_sayisi FROM articles");
-
-$sayisiniGetirmeYaniti = $sayisiniGetir->fetch();
+// $sayisiniGetir = $connection->query("SELECT COUNT(id) as satir_sayisi FROM articles");
+//
+// $sayisiniGetirmeYaniti = $sayisiniGetir->fetch();
 // var_dump($sayisiniGetirmeYaniti);
 
 //  bir veri seti döndürüldüyse ->fetchAll() çalıştırılarak tamamı alınabilir
 
 $butunSatirlariSorgula = $connection->query("SELECT * FROM articles ORDER BY id DESC");
+// echo "<pre>";
+// die(var_dump($butunSatirlariSorgula->fetchAll(PDO::FETCH_OBJ)));
 
 while ($satir = $butunSatirlariSorgula->fetch(PDO::FETCH_OBJ)) {
   // var_dump($satir);die();
   echo $satir->title . "<br>";
 }
 
+echo "<hr>";
+
+$butunSatirlariSorgula = $connection->query("SELECT * FROM articles ORDER BY id DESC");
+
+$butunSatirlar = $butunSatirlariSorgula->fetchAll(PDO::FETCH_OBJ);
+
+foreach ($butunSatirlar as $satir) {
+  echo $satir->title . "<br>";
+}
 
 
 

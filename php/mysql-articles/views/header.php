@@ -18,13 +18,18 @@
         <li class="nav-item active">
           <a class="nav-link" href="index.php">Ana sayfa</a>
         </li>
-        <?php if(isset($_SESSION['username'])): ?>
+        <?php if (isset($_SESSION['username'])): ?>
           <li class="nav-item">
               <a class="nav-link disabled" href="#" disabled>
             Hoş geldiniz <?=$_SESSION['username']?>
+            <?php if (isset($_SESSION['is_admin'])): ?>
+              <?php if ($_SESSION['is_admin']): ?>
+                (Yönetici)
+              <?php endif?>
+            <?php endif?>
           </a>
           </li>
-        <?php endif; ?>
+        <?php endif;?>
       </ul>
     </div>
     </div>
